@@ -1,0 +1,45 @@
+"
+" cooperr vimrc
+"
+" reference https://github.com/mhinz/vim-galor/ minimal-vimrc
+
+" explicitly set 'nocompatible'
+set nocompatible
+
+" visualbell please
+set vb
+
+" temp files in same dir
+"
+" // at end instructs vim to save directory path in filename
+" swap files
+" set directory=$HOME/.vim/files/swap//
+set noswapfile
+"
+" backup files
+" set backup
+" set backupdir=$HOME/.vim/files/backup/
+" set backupext=-vimbackup
+set nobackup
+"
+" undo files
+" set undofile
+" set undodir=$HOME/.vim/files/undo
+set noundofile
+set viminfo='20,<50,s10,n$HOME/.vim/viminfo
+
+" plugin manager
+"
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" plugins
+"
+call plug#begin('$HOME/.vim/plugged')
+
+" Plug 'jamessan/vim-gnupg'
+
+call plug#end()
