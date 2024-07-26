@@ -1,0 +1,70 @@
+# russell tcshrc
+#
+
+set path=($HOME/bin /usr/local/bin /bin /usr/bin /sbin /usr/sbin /usr/local/sbin /opt/homebrew/bin $HOME/Library/Python/3.8/bin .)
+
+if ( ${?MANPATH} ) then 
+  setenv MANPATH ${MANPATH}:/usr/share/man:/usr/local/share/man:/usr/local/MacGPG2/share/man:/opt/homebrew/share/man
+else 
+  setenv MANPATH /usr/share/man:usr/local/share/man:/usr/local/MacGPG2/share/man:/opt/homebrew/share/man
+endif
+
+if ( ${?tty} ) then
+  setenv GPG_TTY ${tty}
+endif
+
+bindkey -v
+umask 027
+if ($?prompt) then
+   set dunique
+   set pushdtohome
+   set pushdsilent
+   set autoexpand
+   set addsuffix
+   set rmstar
+   set showdots
+   set nobeep
+   set autolist=beepnone
+   set ampm
+   set correct=cmd
+   if ($uid == 0) then
+      set prompt="\n%B%/\n%b%m%# "
+   else
+#      set prompt='%B%/\n%b%m> '
+# blue pwd
+#      alias precmd 'echo "[01;34m$cwd[0m"'
+# cyan pwd
+      alias precmd 'echo "[01;36m$cwd[0m"'
+      set prompt='%m> '
+   endif
+   if ($?term) then
+      if ($term == dumb) then
+         set term=vt100
+      endif
+   else
+      if ($tty == /dev/hft) then
+         echo setting term to hft
+         set term=hft
+      else
+         echo setting term to vt100
+         set term=vt100
+      endif
+   endif
+   setenv EDITOR /usr/bin/vi
+   setenv VISUAL /usr/bin/vi
+   test -f /usr/bin/less
+   if ($status == 0) then
+      setenv LESS "-e"
+      setenv PAGER "less"
+      alias myman 'nroff -man \!* | less -s'
+   else
+      alias myman 'nroff -man \!* | more -s'
+   endif
+   set history=64 savehist=16
+   alias ll '/bin/ls -alF'
+   alias clk 'date "+%D %r"'
+   alias clkk 'date "+%b %d %H:%M"'
+   alias cd pushd
+   alias psg 'ps -Af | grep -i'
+   alias gvi 'vi --noplugin -i NONE -n -x'
+endif
