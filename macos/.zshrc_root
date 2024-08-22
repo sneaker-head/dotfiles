@@ -1,0 +1,36 @@
+# custom root zshrc
+#
+
+setopt NO_BEEP
+setopt NO_CASE_GLOB
+
+# changing directories
+setopt AUTO_PUSHD
+setopt CD_SILENT
+setopt PUSHD_IGNORE_DUPS
+setopt PUSHD_SILENT
+setopt PUSHD_TO_HOME
+
+SAVEHIST=64
+HISTSIZE=16
+setopt HIST_IGNORE_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt HIST_VERIFY
+
+setopt CORRECT
+setopt CORRECT_ALL
+
+# enable && initialize
+autoload -Uz compinit && compinit
+
+precmd () { print -rP "%B%F{244}%~%f%b" }
+export PROMPT="%F{red}%n%f@%m%# "
+
+# vi command mode
+bindkey -v
+
+# strict file protection
+umask 027
+

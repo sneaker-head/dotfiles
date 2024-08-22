@@ -27,6 +27,8 @@ HISTFILESIZE=16
 #PS1='\w\n\h\$ '
 # BLUE current working dir, newline, host, uid-specific prompt terminator
 PS1='\[\033[01;34m\]\w\[\033[00m\]\n\h\$ '
+# YELLOW current working dir, newline, host, uid-specific prompt terminator
+#PS1='\[\033[01;33m\]\w\[\033[00m\]\n\h\$ '
 
 # command line editing with VI
 set -o vi
@@ -42,7 +44,7 @@ alias ll="ls -alF"
 alias clk="date '+%D %r'"
 alias clkk="date '+%b %d %H:%M'"
 alias psg="pgrep -afil"
-alias gvi="vi --noplugin -i NONE -n -x"
+alias vix="vim -u ~/.vim/vimencrypt -x"
 alias ipa="networksetup -getinfo Wi-Fi"
 alias mtop="top -o rsize"
 

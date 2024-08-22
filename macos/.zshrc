@@ -59,14 +59,19 @@ autoload -Uz compinit && compinit
 
 # prompt
 # https://zsh.sourceforge.io/Doc/Release/Prompt-Expansion.html
+# https://www.ditig.com/publications/256-colors-cheat-sheet
 #
-precmd() { print -rP "%F{magenta}%~%f" }
+#precmd() { print -rP "%F{magenta}%~%f" }
+#export PROMPT="%(?.%F{green}√.%F{red}?%?)%f %m%# "
+precmd() { print -rP "%F{45}%~%f" }
 #export PROMPT="%m%# "
-export PROMPT="%(?.%F{green}√.%F{red}?%?)%f %m%# "
+export PROMPT="%m%(!.#.%%) "
 
 # vi command mode
 bindkey -v
 
 # strict file protection
-umask 027
+#umask 027
+# open file protection
+umask 022
 

@@ -1,0 +1,12 @@
+"
+" cooperr vimencrypt
+"
+
+set nocompatible
+set belloff=all
+set cm=blowfish2
+set viminfo=
+set noswapfile
+set nobackup
+set nowritebackup
+set noundofile

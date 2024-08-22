@@ -1,7 +1,7 @@
 "
 " russell vimrc
 "
-" reference https://github.com/mhinz/vim-galor/ minimal-vimrc
+" reference https://github.com/mhinz/vim-galore#minimal-vimrc
 
 " explicitly set 'nocompatible'
 set nocompatible
