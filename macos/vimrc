@@ -1,18 +1,30 @@
 "
-" russell vimrc
+" cooperr vimrc
 "
 " reference https://github.com/mhinz/vim-galore#minimal-vimrc
 
+" two space tab
+set expandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+
+" set line numbers
+set number
+
 " explicitly set 'nocompatible'
 set nocompatible
+
+" enable syntax highlighting
+syntax on
 
 " visualbell please
 set vb
 
 " temp files in same dir
 "
-" // at end instructs vim to save directory path in filename
 " swap files
+" // at end instructs vim to save directory path in filename
 " set directory=$HOME/.vim/files/swap//
 set noswapfile
 "
@@ -26,20 +38,21 @@ set nobackup
 " set undofile
 " set undodir=$HOME/.vim/files/undo
 set noundofile
-set viminfo='20,<50,s10,n$HOME/.vim/viminfo
 
-" plugin manager
-"
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
+set viminfo='100,n$HOME/.vim/files/info/viminfo
 
-" plugins
-"
-call plug#begin('$HOME/.vim/plugged')
+" show status line
+set laststatus=2
+" show ALL of last line
+set display=lastline
 
-" Plug 'jamessan/vim-gnupg'
+" show current mode in command line
+set showmode
+" show already typed keys when more are expected
+set showcmd
 
-call plug#end()
+" faster redrawing
+set ttyfast
+" only redraw when necessary
+set lazyredraw
+
